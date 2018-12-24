@@ -1,5 +1,12 @@
-const MongoClient = require('mongodb').MongoClient;
-// Object destructuring in ES6
+// const MongoClient = require('mongodb').MongoClient;
+
+const {MongoClient, ObjectID} = require('mongodb'); //Require using destructuring
+
+var obj = new ObjectID();
+console.log(obj);
+
+
+// Object destructuring in ES6 - Way to make new variables from an object's property
 var user = {name:'Aditya', age:29};
 var {name} = user;
 console.log(`User name is : ${name}`);
