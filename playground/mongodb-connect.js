@@ -1,4 +1,8 @@
 const MongoClient = require('mongodb').MongoClient;
+// Object destructuring in ES6
+var user = {name:'Aditya', age:29};
+var {name} = user;
+console.log(`User name is : ${name}`);
 
 MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, client) => {
   if(err){
