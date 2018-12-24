@@ -20,14 +20,15 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, client) => {
   // });
 
   db.collection('Users').insertOne({
-    name: 'Aditya',
+    name: 'Neha',
     age: 29,
     location: 'Pune'
   }, (err, result) => {
     if(err){
       return console.log('unable to insert user item', err);
-    }  
+    }
     console.log(JSON.stringify(result.ops, undefined, 2));
+    console.log(result.ops[0]._id);
   });
   client.close(); //Closes connection with MongoDB Server
   console.log('MongoDB connection closed');
