@@ -9,13 +9,18 @@ mongoose.connect('mongodb://localhost:27017/TodoApp');
 var Todo = mongoose.model('Todo', {
   //object to define various properties of model
   text: {
-    type: String
+    type: String,
+    required:true,
+    minlength: 1,
+    trim: true
   },
   completed: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   completedAt: {
-    type: Number
+    type: Number,
+    default:null
   }
 });
 
@@ -32,14 +37,12 @@ var newTodo = new Todo({
 // });
 
 var secondTodo = new Todo({
-  text: 'Update Regsitered Mobile number',
-  completed: true,
-  completedAt: 12272018
+  text: 'Apply for Jobs'
 });
 
 
 secondTodo.save().then((doc)=> {
-  console.log('Saved the 2nd toDo', doc);
+  console.log(JSON.stringify(doc, undefined, 2));
 }, (error) => {
   console.log('Unable to save todo');
 });
