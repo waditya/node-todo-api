@@ -37,7 +37,7 @@ var newTodo = new Todo({
 // });
 
 var secondTodo = new Todo({
-  text: 'Apply for Jobs'
+  text: '   Apply for Full-time Jobs  '
 });
 
 
