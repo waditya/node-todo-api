@@ -8,6 +8,12 @@ var {mongoose} = require('./db/mongoose');
 var {Todo} = require('./models/todo');
 var {User} = require('./models/user');
 
+const todos = [{
+  text: 'First test todo'
+}, {
+  text: 'Second test todo'
+}];
+
 var app = express(); //Stores express application
 
 // // COMBAK: Configure Middleware
@@ -33,7 +39,6 @@ app.get('/todos', (req, res)=> {
     res.send({todos});
   }, (e)=>{
     res.status(400).send(e);
-
   })
 });
 
