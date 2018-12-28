@@ -22,13 +22,25 @@ app.post('/todos', (req, res)=> {
   todo.save().then((doc)=> {
     res.send(doc);
   }, (error)=> {
-    res.send(error);
+    res.status(400).send(error);
   })
   console.log(req.body);
 });
 
 // GET /todos/123r3458984
+app.get('/todos', (req, res)=> {
+  Todo.find().then((todos)=>{
+    res.send({todos});
+  }, (e)=>{
+    res.status(400).send(e);
 
-app.listen(3000, ()=> {
-  console.log('Started on port 3000');
+  })
+});
+
+app.listen(3001, ()=> {
+  console.log('Started on port 3001');
 }); //Basic Server Created
+
+module.exports = {
+  app
+};
