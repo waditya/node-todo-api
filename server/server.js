@@ -8,11 +8,7 @@ var {mongoose} = require('./db/mongoose');
 var {Todo} = require('./models/todo');
 var {User} = require('./models/user');
 
-const todos = [{
-  text: 'First test todo'
-}, {
-  text: 'Second test todo'
-}];
+
 
 var app = express(); //Stores express application
 
