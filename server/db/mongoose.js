@@ -9,6 +9,7 @@ let db = {
 // mongoose.connect();
 mongoose.connect(db.localhost || db.mlab);
 // mongoose.connect(db.mlab);
+//  mongoose.connect(db.localhost);
 
 module.exports = {
   mongoose
