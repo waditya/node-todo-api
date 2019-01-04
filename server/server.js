@@ -13,6 +13,9 @@ const {ObjectID} = require('mongodb');
 
 var app = express(); //Stores express application
 
+// Setup parameters for HEROKU deployment
+const port = process.env.PORT || 3000; // Set when App is running on Heroku
+
 // // COMBAK: Configure Middleware
 
 app.use(bodyParser.json()) // Function returned by bodyParser.json() is the middleware
@@ -62,8 +65,8 @@ app.get('/todos', (req, res)=> {
   })
 });
 
-app.listen(3000, ()=> {
-  console.log('Started on port 3000');
+app.listen(port, ()=> {
+  console.log(`Started on port ${port}`);
 }); //Basic Server Created
 
 module.exports = {
