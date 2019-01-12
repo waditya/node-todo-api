@@ -65,6 +65,28 @@ app.get('/todos', (req, res)=> {
   })
 });
 
+app.delete('/todos/:id', (req, res)=>{
+  var id = req.params.id; // get the id
+
+  // validate the id -> not valid? rturn 404
+  if(!ObjectID.isValid(id)){
+    console.log("404 Error - Invalid ID");
+    return res.status(404).send(); //Set the status of response to 404
+  }
+
+  Todo.findByIdAndRemove(id).then((todo)=>{
+
+    if(!todo){
+      console.log("ID not found in database");
+      return res.status(404).send();
+    }
+      console.log("ID found and deleted");
+      res.send({todo});
+  }).catch((error)=>{
+    res.status(400).send();
+  });
+});
+
 app.listen(port, ()=> {
   console.log(`Started on port ${port}`);
 }); //Basic Server Created
