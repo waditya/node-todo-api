@@ -1,6 +1,7 @@
 // library imports
-var express = require('express');
-var bodyParser = require('body-parser');
+const _ = require('lodash');
+const express = require('express');
+const bodyParser = require('body-parser');
 
 //Local imports Using ES6 destructuring
 
